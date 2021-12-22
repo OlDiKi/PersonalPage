@@ -43,6 +43,7 @@ class LoginViewController: UIViewController {
         if userNameTitle.text != user.login || passwordTitle.text != user.password {
             showAlert(title: "Invalid login or pasword", message: "Please, enter correct login and password", textField: passwordTitle)
         }
+        performSegue(withIdentifier: "showWelcomeVC", sender: nil)
     }
 
     
