@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
             if let welcomeVC = $0 as? WelcomeViewController {
                 welcomeVC.welcomeUser = user
             } else if let navigationVC = $0 as? UINavigationController {
-                let userInfoVC = navigationVC.topViewController as! UserInfoViewController
+                let userInfoVC = navigationVC.topViewController as! UserImageViewController
                 userInfoVC.user = user
             }
         }
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
 
     
     @IBAction func forgotUserNameTap(_ sender: UIButton) {
-        showAlert(title: "Oops!", message: "You name is \(user.login)")
+        showAlert(title: "Oops!", message: "You User Name is \(user.login)")
     }
     
     @IBAction func forgotPasswordTap() {
@@ -65,11 +65,13 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in textField?.text = ""
+        let okAction = UIAlertAction(title: "Fine", style: .default) { _ in textField?.text = ""
         }
         alert.addAction(okAction)
         present(alert, animated: true)
         }
+
+// MARK: - Gradient Background
     
     private func gradientBackground () {
         let color1 = UIColor(red: 0 / 255, green: 183 / 255, blue: 142 / 255, alpha: 1).cgColor

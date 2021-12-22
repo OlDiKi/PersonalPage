@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  ImageViewController.swift
 //  PersonalPage
 //
 //  Created by Дмитрий Олейнер on 22.12.2021.
@@ -7,22 +7,29 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
-
-    @IBOutlet var welcomeLabel: UILabel!
+class UserAboutViewController: UIViewController {
     
-    var welcomeUser: User!
+   
+    @IBOutlet weak var aboutOneLabel: UILabel!
+    @IBOutlet weak var aboutTwoLabel: UILabel!
+    @IBOutlet weak var aboutThreeLabel: UILabel!
+    @IBOutlet weak var aboutFourLabel: UILabel!
     
+    var user: User!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientBackground()
-        welcomeLabel.text = "Welcome, \(welcomeUser.person.fullName)!"
-        
+
+        aboutOneLabel.text = user.person.aboutOne
+        aboutTwoLabel.text = user.person.aboutTwo
+        aboutThreeLabel.text = user.person.aboutThree
+        aboutFourLabel.text = user.person.aboutFour
     }
 }
-    
+
 //MARK: - Gradient Background
-extension WelcomeViewController {
+extension UserAboutViewController {
         private func gradientBackground(){
         let color1 = UIColor(red: 0 / 255, green: 183 / 255, blue: 142 / 255, alpha: 1).cgColor
         let color2 = UIColor(red: 0 / 255, green: 153 / 255, blue: 121 / 255, alpha: 1).cgColor
